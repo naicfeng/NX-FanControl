@@ -1,29 +1,33 @@
+Here’s a **polished and professional version** of your README — keeping your tone and structure, but improving flow, clarity, and formatting for readability:
+
+---
 
 # NX-FanControl
 
-**NX-FanControl** is a Nintendo Switch homebrew utility that lets you fully customize the console’s internal fan curve. It supports up to **10 configurable points** based on SoC temperature, giving you complete control over cooling behavior and noise levels.
+**NX-FanControl** is a Nintendo Switch homebrew utility that lets you fully customize your console’s internal fan curve.
+It supports up to **10 configurable points** based on SoC temperature, giving you full control over cooling performance and noise levels.
 
 ---
 
 ## ✨ Features
 
 * 🧠 **Custom fan curve** — Define up to **10 temperature points** with corresponding fan speeds.
-* 🌡️ **Real-time monitoring** — View current **SoC temperature** and **fan RPM** directly.
-* ⚙️ **Fine-tuned control** — Balance noise, cooling, and performance to your preference.
+* 🌡️ **Real-time monitoring** — View the current **SoC temperature** and **fan RPM** in real time.
+* ⚙️ **Fine-tuned control** — Balance cooling, noise, and performance exactly to your preference.
 
 ---
 
 ## 📦 Requirements
 
-Before building, make sure you have the [**devkitPro toolchain**](https://devkitpro.org/wiki/Getting_Started) installed and set up.
+Before building, ensure you have the [**devkitPro toolchain**](https://devkitpro.org/wiki/Getting_Started) installed and properly set up.
 
 ---
 
 ## 🛠️ Building from Source
 
-Clone the repository (including submodules), fetch dependencies, and build:
+Clone the repository (including submodules), install dependencies, and build:
 
-```
+```bash
 git clone --recurse-submodules https://github.com/dominatorul/NX-FanControl.git
 cd NX-FanControl
 cd lib
@@ -32,17 +36,30 @@ cd ..
 make
 ```
 
+---
+
+## ⚙️ Common Issues & Fixes
+
+**Issue:** Fan always stays on
+**Fix:** Add the following configuration to your `Atmosphere/config` folder:
+[👉 system_settings.ini (GitHub link)](https://github.com/dominatorul/Easy-Setup/blob/main/data/Optimizer/EmuNAND/system_settings.ini)
+
+Place it in:
+
+```
+atmosphere/config/
+```
+
+---
+
 ## ⚠️ Disclaimer
 
 This project is **homebrew software** and is **not affiliated with or endorsed by Nintendo**.
-Use at your own risk — modifying fan behavior may impact system stability, performance, or hardware lifespan.
+Use at your own risk — modifying fan behavior may affect system stability, performance, or hardware lifespan.
 
 ---
 
 ## 📜 License
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
----
-
-Would you like me to add a **Usage** section (e.g., how to install it with Atmosphère or how to configure the fan curve)? That would make the README even more helpful for users.
+This project is licensed under the **MIT License**.
+See the [LICENSE](./LICENSE) file for details.
