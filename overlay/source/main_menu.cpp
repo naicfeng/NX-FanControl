@@ -222,16 +222,16 @@ void MainMenu::update()
 
     if(this->_tableIsChanged)
     {
-        this->_p0Label->setText("一级:", std::to_string(this->_fanCurveTable->temperature_c) + "℃ | " + std::to_string((int)(this->_fanCurveTable->fanLevel_f * 100)) + "%");
-        this->_p1Label->setText("二级:", std::to_string((this->_fanCurveTable + 1)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 1)->fanLevel_f * 100)) + "%");
-        this->_p2Label->setText("三级:", std::to_string((this->_fanCurveTable + 2)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 2)->fanLevel_f * 100)) + "%");
-        this->_p3Label->setText("四级:", std::to_string((this->_fanCurveTable + 3)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 3)->fanLevel_f * 100)) + "%");
-        this->_p4Label->setText("五级:", std::to_string((this->_fanCurveTable + 4)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 4)->fanLevel_f * 100)) + "%");
-        this->_p5Label->setText("六级:", std::to_string((this->_fanCurveTable + 5)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 5)->fanLevel_f * 100)) + "%");
-        this->_p6Label->setText("七级:", std::to_string((this->_fanCurveTable + 6)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 6)->fanLevel_f * 100)) + "%");
-        this->_p7Label->setText("八级:", std::to_string((this->_fanCurveTable + 7)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 7)->fanLevel_f * 100)) + "%");
-        this->_p8Label->setText("九级:", std::to_string((this->_fanCurveTable + 8)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 8)->fanLevel_f * 100)) + "%");
-        this->_p9Label->setText("十级:", std::to_string((this->_fanCurveTable + 9)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 9)->fanLevel_f * 100)) + "%");
+        this->_p0Label->setValue(std::to_string(this->_fanCurveTable->temperature_c) + "℃ | " + std::to_string((int)(this->_fanCurveTable->fanLevel_f * 100)) + "%");
+        this->_p1Label->setValue(std::to_string((this->_fanCurveTable + 1)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 1)->fanLevel_f * 100)) + "%");
+        this->_p2Label->setValue(std::to_string((this->_fanCurveTable + 2)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 2)->fanLevel_f * 100)) + "%");
+        this->_p3Label->setValue(std::to_string((this->_fanCurveTable + 3)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 3)->fanLevel_f * 100)) + "%");
+        this->_p4Label->setValue(std::to_string((this->_fanCurveTable + 4)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 4)->fanLevel_f * 100)) + "%");
+        this->_p5Label->setValue(std::to_string((this->_fanCurveTable + 5)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 5)->fanLevel_f * 100)) + "%");
+        this->_p6Label->setValue(std::to_string((this->_fanCurveTable + 6)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 6)->fanLevel_f * 100)) + "%");
+        this->_p7Label->setValue(std::to_string((this->_fanCurveTable + 7)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 7)->fanLevel_f * 100)) + "%");
+        this->_p8Label->setValue(std::to_string((this->_fanCurveTable + 8)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 8)->fanLevel_f * 100)) + "%");
+        this->_p9Label->setValue(std::to_string((this->_fanCurveTable + 9)->temperature_c) + "℃ | " + std::to_string((int)((this->_fanCurveTable + 9)->fanLevel_f * 100)) + "%");
 
         this->_tableIsChanged = false;
     }
