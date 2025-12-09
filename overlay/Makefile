@@ -43,9 +43,9 @@ APP_VERSION :=	1.0.5+
 TARGET		:=	$(APP_TITLE)
 BUILD		:=	build
 # Include libultrahand source directories
-SOURCES		:=	source lib/libultrahand/libultra/source lib/libultrahand/libtesla/source ../lib/cJSON
+SOURCES		:=	source lib/libultrahand/libultra/source lib/libultrahand/libtesla/source lib/cJSON
 DATA		:=	data
-INCLUDES	:=	include source lib/libultrahand/libultra/include lib/libultrahand/libtesla/include ../lib/libfancontrol/include ../lib/cJSON
+INCLUDES	:=	include source lib/libultrahand/libultra/include lib/libultrahand/libtesla/include ../lib/libfancontrol/include lib/cJSON
 
 NO_ICON		:=  1
 
@@ -200,7 +200,7 @@ DEPENDS	:=	$(OFILES:.o=.d)
 #---------------------------------------------------------------------------------
 all	:	 $(OUTPUT).ovl
 
-$(OUTPUT).ovl		:	$(OUTPUT).elf $(OUTPUT).nacp 
+$(OUTPUT).ovl		:	$(OUTPUT).elf $(OUTPUT).nacp
 	@elf2nro $< $@ $(NROFLAGS)
 	@echo "built ... $(notdir $(OUTPUT).ovl)"
 
