@@ -7,9 +7,9 @@ SelectMenu::SelectMenu(int i, TemperaturePoint* fanCurveTable, bool* tableIsChan
     this->_fanCurveTable = fanCurveTable;
     this->_tableIsChanged = tableIsChanged;
 
-    this->_saveBtn = new tsl::elm::ListItem("保存");
-    this->_tempLabel = new tsl::elm::CategoryHeader(std::to_string((this->_fanCurveTable + this->_i)->temperature_c) + "℃", true);
-    this->_fanLabel = new tsl::elm::CategoryHeader(std::to_string((int)((this->_fanCurveTable + this->_i)->fanLevel_f * 100)) + "%", true);
+    this->_saveBtn = new tsl::elm::ListItem("保存调整");
+    this->_tempLabel = new tsl::elm::CategoryHeader("核心温度: "+std::to_string((this->_fanCurveTable + this->_i)->temperature_c) + "℃", true);
+    this->_fanLabel = new tsl::elm::CategoryHeader("风扇转速: "+std::to_string((int)((this->_fanCurveTable + this->_i)->fanLevel_f * 100)) + "%", true);
 }
 
 tsl::elm::Element* SelectMenu::createUI(){
@@ -19,23 +19,23 @@ tsl::elm::Element* SelectMenu::createUI(){
     auto list = new tsl::elm::List();
 
     list->addItem(this->_tempLabel);
-    auto stepTemp = new tsl::elm::StepTrackBar("℃", 21);
+    auto stepTemp = new tsl::elm::StepTrackBar("温度(℃)", 21);
     stepTemp->setValueChangedListener([this](u8 value)
     {
-        this->_tempLabel->setText(std::to_string(value * 5) + "℃");
+        this->_tempLabel->setText("核心温度: "+std::to_string(value * 5) + "℃");
         (this->_fanCurveTable + this->_i)->temperature_c = value * 5;
-        this->_saveBtn->setText("保存");
+        this->_saveBtn->setText("保存调整");
     });
     stepTemp->setProgress(((this->_fanCurveTable + this->_i)->temperature_c) / 5);
     list->addItem(stepTemp);
 
     list->addItem(this->_fanLabel);
-    auto stepFanL = new tsl::elm::StepTrackBar("%", 21);
+    auto stepFanL = new tsl::elm::StepTrackBar("转速(%)", 21);
     stepFanL->setValueChangedListener([this](u8 value)
     {
-        this->_fanLabel->setText(std::to_string(value * 5) + "%");
+        this->_fanLabel->setText("风扇转速: "+std::to_string(value * 5) + "%");
         (this->_fanCurveTable + this->_i)->fanLevel_f = (float)(value * 5)/100;
-        this->_saveBtn->setText("保存");
+        this->_saveBtn->setText("保存调整");
     });
     stepFanL->setProgress(((int)((this->_fanCurveTable + this->_i)->fanLevel_f * 100)) / 5);
     list->addItem(stepFanL);
@@ -58,7 +58,7 @@ tsl::elm::Element* SelectMenu::createUI(){
                 pmshellLaunchProgram(0, &programLocation, &pid);
             }
 
-            this->_saveBtn->setText("保存成功!");
+            this->_saveBtn->setText("保存成功");
             *this->_tableIsChanged = true;
 		    return true;
 		}
