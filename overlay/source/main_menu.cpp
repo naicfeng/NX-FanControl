@@ -203,7 +203,9 @@ void MainMenu::update()
         float socTemp = GetSOCTemperature();
         if (socTemp >= 0) {
             const tsl::Color tempColor = tsl::GradientColor((float)socTemp);
-            this->_socTempLabel->setValue(std::to_string((float)socTemp) + "℃");
+            char buf[16];
+            std::snprintf(buf, sizeof(buf), "%.1f", socTemp);
+            this->_socTempLabel->setValue(std::string(buf) + "℃");
             this->_socTempLabel->setValueColor(tempColor);
         } else {
             this->_socTempLabel->setValue("错误");
