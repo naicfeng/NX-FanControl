@@ -1,4 +1,5 @@
 # Define build targets
+APP_TITLE := FanControl
 TARGETS := lib/libfancontrol overlay sysmodule
 OUT_DIR := out
 
@@ -38,16 +39,17 @@ out:
 	@echo ""
 	@echo "Packaging overlay..."
 	@mkdir -p $(OUT_DIR)/switch/.overlays
-	@cp ./overlay/NX-FanControl.ovl $(OUT_DIR)/switch/.overlays/Nx-FanControl.ovl
+	@cp ./overlay/out/NX-FanControl.ovl $(OUT_DIR)/switch/.overlays/NX-FanControl.ovl
 
 	@echo "Packaging sysmodule..."
 	@mkdir -p $(OUT_DIR)/atmosphere/contents/00FF0000B378D640/flags
 	@cp ./sysmodule/sysmodule.nsp $(OUT_DIR)/atmosphere/contents/00FF0000B378D640/exefs.nsp
 	@cp ./sysmodule/toolbox.json $(OUT_DIR)/atmosphere/contents/00FF0000B378D640/
 	@touch $(OUT_DIR)/atmosphere/contents/00FF0000B378D640/flags/boot2.flag
-	
+
 	@echo ""
 	@echo "Build complete! Files are in '$(OUT_DIR)' directory"
+	@cd $(OUT_DIR); zip -r -q -9 $(APP_TITLE).zip switch atmosphere; echo "Packaged build into '$(APP_TITLE).zip'"
 
 # Manual clean command (use 'make clean' to only clean without building)
 clean:
@@ -59,7 +61,7 @@ clean:
 	@echo "Clean complete!"
 
 # Quick rebuild - clean and build specific target
-rebuild-lib: 
+rebuild-lib:
 	@$(MAKE) -C lib/libfancontrol clean 2>/dev/null || true
 	@$(MAKE) lib/libfancontrol
 
