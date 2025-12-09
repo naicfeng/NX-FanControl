@@ -19,7 +19,7 @@ tsl::elm::Element* SelectMenu::createUI(){
     auto list = new tsl::elm::List();
 
     list->addItem(this->_tempLabel);
-    auto stepTemp = new tsl::elm::StepTrackBar("温度(℃)", 21);
+    auto stepTemp = new tsl::elm::StepTrackBar("℃", 21);
     stepTemp->setValueChangedListener([this](u8 value)
     {
         this->_tempLabel->setText("核心温度: "+std::to_string(value * 5) + "℃");
@@ -30,7 +30,7 @@ tsl::elm::Element* SelectMenu::createUI(){
     list->addItem(stepTemp);
 
     list->addItem(this->_fanLabel);
-    auto stepFanL = new tsl::elm::StepTrackBar("转速(%)", 21);
+    auto stepFanL = new tsl::elm::StepTrackBar("%", 21);
     stepFanL->setValueChangedListener([this](u8 value)
     {
         this->_fanLabel->setText("风扇转速: "+std::to_string(value * 5) + "%");
@@ -58,7 +58,7 @@ tsl::elm::Element* SelectMenu::createUI(){
                 pmshellLaunchProgram(0, &programLocation, &pid);
             }
 
-            this->_saveBtn->setText("保存成功");
+            this->_saveBtn->setText("保存调整成功");
             *this->_tableIsChanged = true;
 		    return true;
 		}
